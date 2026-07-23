@@ -38,6 +38,9 @@ rawtree client --time --query "
         toDateTime(LocalEventTime)  AS LocalEventTime)
     FROM file('hits_*.parquet')" --max-insert-threads $(( $(nproc) / 4 ))
 
+# Typed ingest
+# rawtree client --time --query "INSERT INTO hits FROM file('hits_*.parquet')" --max-insert-threads $(( $(nproc) / 4 ))
+
 # Run the queries
 
 ./run_old.sh
