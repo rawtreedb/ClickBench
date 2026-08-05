@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install
-aws s3 cp s3://rawtree-perf-test-tables/binaries/rawtree rawtree
+aws s3 cp s3://rawtree-ursa-builds/REFs/26.7/812d8b07e3ac476bc5c2818a4d64619bacd2c1e8/build_amd_release/rawtree rawtree
 chmod +x rawtree
 sudo ./rawtree install --noninteractive
 
