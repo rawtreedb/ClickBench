@@ -1,8 +1,5 @@
 -- No schema: RawMergeTree derives every column from the inserted data and its own sorting key.
-CREATE TABLE hits ENGINE = RawMergeTree
+CREATE TABLE hits(__raw_data JSON CODEC(ZSTD(3))) ENGINE = RawMergeTree
 ORDER BY (CounterID, EventDate, UserID, EventTime, WatchID)
 SETTINGS
-    min_bytes_for_wide_part = 1,
-    pack_object_columns_on_insert = 1,
-    vertical_merge_parallelize = 1,
     fsync_after_insert = 1; -- https://github.com/ClickHouse/ClickBench/issues/678
