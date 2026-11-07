@@ -1,5 +1,5 @@
 -- No schema: RawMergeTree derives every column from the inserted data and its own sorting key.
-CREATE TABLE hits ENGINE = RawMergeTree
+CREATE OR REPLACE TABLE hits ENGINE = RawMergeTree
 SETTINGS
     min_bytes_for_wide_part = 1,
     pack_object_columns_on_insert = 1,
