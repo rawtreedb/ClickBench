@@ -1,0 +1,11 @@
+{
+  "system": "ClickHouse (S3, no filesystem cache)",
+  "proprietary": "no",
+  "hardware": "cpu",
+  "tuned": "no",
+  "tags": [
+    "C++",
+    "column-oriented",
+    "ClickHouse derivative"
+  ]
+}

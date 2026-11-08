@@ -1,0 +1,17 @@
+{
+      "system": "RawTree (S3, no filesystem cache)",
+      "date": "2026-11-08",
+      "machine": "c6a.4xlarge",
+      "cluster_size": 1,
+      "proprietary": "no",
+      "hardware": "cpu",
+      "tuned": "no",
+      "tags": ["C++","column-oriented","schema-less","ClickHouse derivative"],
+      "load_time": LOAD_TIME,
+      "data_size": DATA_SIZE,
+      "concurrent_qps": CONCURRENT_QPS,
+      "concurrent_error_ratio": CONCURRENT_ERROR_RATIO,
+      "result": [
+PASTE_43_QUERY_LINES_HERE
+]
+  }
