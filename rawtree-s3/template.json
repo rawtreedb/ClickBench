@@ -1,0 +1,12 @@
+{
+  "system": "RawTree (S3)",
+  "proprietary": "no",
+  "hardware": "cpu",
+  "tuned": "no",
+  "tags": [
+    "C++",
+    "column-oriented",
+    "schema-less",
+    "ClickHouse derivative"
+  ]
+}
