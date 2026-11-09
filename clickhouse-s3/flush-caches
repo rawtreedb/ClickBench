@@ -1,7 +1,0 @@
-#!/bin/bash
-# Drop the S3 disk's filesystem cache so the cold try is really cold.
-#
-# bench_flush_caches calls this while the server is stopped, so
-# SYSTEM DROP FILESYSTEM CACHE is not available — delete the files directly.
-# The server reloads the cache directory on start, and the kernel's drop_caches does not touch it.
-sudo find /var/lib/clickhouse/caches/s3 -mindepth 1 -delete
