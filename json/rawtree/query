@@ -1,0 +1,6 @@
+#!/bin/bash
+# Reads a query from stdin, runs it with rawtree-client.
+# Stderr: the runtime in fractional seconds on the last line (from --time).
+set -e
+
+rawtree-client --time --format=Null

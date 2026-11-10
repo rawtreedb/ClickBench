@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e -o pipefail
+
+# RawTree has no public install script yet, so the binary is taken from one of:
+#   RAWTREE_BINARY      path to an already built binary
+#   RAWTREE_BINARY_URL  URL to download it from
+# The same as in the main ClickBench, see ../../rawtree/install.
+if [ ! -x /usr/bin/rawtree ]; then
+    if [ -n "${RAWTREE_BINARY:-}" ]; then
+        cp "$RAWTREE_BINARY" rawtree
+    elif [ -n "${RAWTREE_BINARY_URL:-}" ]; then
+        wget --continue --progress=dot:giga -O rawtree "$RAWTREE_BINARY_URL"
+    else
+        echo "install: set RAWTREE_BINARY to a rawtree binary, or RAWTREE_BINARY_URL to download one" >&2
+        exit 1
+    fi
+
+    chmod +x rawtree
+    sudo ./rawtree install --noninteractive
+    rm -f ./rawtree
+fi
+
+# Load the tables at startup rather than on the first (cold) query, as for ClickHouse.
+sudo mkdir -p /etc/rawtree-server/config.d
+sudo tee /etc/rawtree-server/config.d/eager_load.yaml >/dev/null <<'YAML'
+async_load_databases: false
+YAML
