@@ -1,0 +1,11 @@
+{
+  "system": "RawTree (no runtime projections)",
+  "proprietary": "no",
+  "retains_structure": "yes",
+  "tags": [
+    "C++",
+    "column-oriented",
+    "schema-less",
+    "ClickHouse derivative"
+  ]
+}
